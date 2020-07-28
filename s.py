@@ -1,12 +1,13 @@
 import cadquery as cq  # type: ignore
 
 import sys
-#if "cq_editor" not in sys.modules:
-if "cq_editor" not in globals().keys():
-    print("s: importing log and show_object")
-    from utils import log, show_object
+if "cq_editor" in sys.modules:
+    print("x: cq_editor availablei")
+    from logbook import info as log
+    from __main__ import show_object
 else:
-    print("s: NOT importing log and show_object")
+    print("x: from utils import log, show_object")
+    from utils import log, show_object
 
 print(f"s: {globals().keys()}")
 
