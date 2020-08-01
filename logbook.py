@@ -1,2 +1,2 @@
-def info():
+def info(o):
     pass
