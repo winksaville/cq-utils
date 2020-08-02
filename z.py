@@ -1,15 +1,15 @@
-import cadquery as cq  # type: ignore
 import sys
+import cadquery as cq  # type: ignore
 
-from __main__ import self
-from logbook import info as log
-
-show_object = self.components["object_tree"].addObject
+if "cq_editor" in sys.modules:
+    from __main__ import self
+    show_object = self.components['object_tree'].addObject
+else:
+    def show_object(o):
+        print(f"{vars(o)}")
 
 box = cq.Workplane("XY").box(1, 2, 3)
 #show_object(box)
-log(f"z: box={box}")
 
 sphere = cq.Workplane("XY").sphere(1)
 show_object(sphere)
-log(f"z: sphere={sphere}")
