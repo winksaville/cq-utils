@@ -1,5 +1,32 @@
 # CQ utils
 
+At the moment this isn't working, my previous test was flawed. If I change y.py
+to not call `show_object`:
+```
+(cq-dev) wink@3900x:~/prgs/CadQuery/projects/utils (master)
+$ cat -n y.py
+     1	import cadquery as cq  # type: ignore
+     2	
+     3	from s import sphere
+     4	from utils import log, show_object
+     5	
+     6	box = cq.Workplane("XY").box(1, 2, 3)
+     7	#show_object(box)
+     8	log(f"y: box={box}")
+     9	
+    10	sphere = sphere(1)
+    11	log(f"y: sphere={sphere}")
+```
+So now only `s.py` has a call to show_object. The desired result should
+be that `cq-editor` would show only the shere, but it actually shows
+both the sphere and the box. This demonstrates that something isn't correct
+and the `show_object` method in `utils.py` isn't working as I'd expect:
+
+![](./ss_y_no_show_object_call.png)
+
+---------------
+**Below is NOT WORKING**:
+
 An attempt to create a utility module which allows a python
 application/module to be used with straight python or cq-editor.
 
