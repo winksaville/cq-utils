@@ -1,0 +1,46 @@
+(cq-dev) wink@3900x:~/prgs/CadQuery/forks/CQ-editor (Add-debug-print-to-debugger.py-and-object_tree.py)
+$ python run.py /home/wink/prgs/CadQuery/projects/utils/y.py 
+Namespace(filename='/home/wink/prgs/CadQuery/projects/utils/y.py')
+TKOpenGl | Type: Other | ID: 0 | Severity: Medium | Message:
+  OpenGl_Window::CreateWindow: window Visual is incomplete: no stencil buffer
+Font_FontMgr, warning: unable to find font 'Courier' [regular]; 'Cantarell' [aspects: regular,bold] [paths: /usr/share/fonts/cantarell/Cantarell-Regular.otf;/usr/share/fonts/cantarell/Cantarell-Bold.otf] is used instead
+ce: render:+
+ce: render: call self._inject_locals
+ce: render: call self._exec len(cq_objects)=0
+y:+
+y: before box(1,2,3)
+y: after box(1,2,3)
+y: before show_object(box)
+utils: cq utils.show_object:+
+ce: object_tree.addObject:+ root=<cq_editor.widgets.object_tree.CQRootItem object at 0x7fc3bdee97d0> columnCount=1 children=0
+ce: object_tree.addObject:- root=<cq_editor.widgets.object_tree.CQRootItem object at 0x7fc3bdee97d0> columnCount=1 children=1
+utils: cq utils.show_object:-
+y: after  show_object(box)
+y: before sphere
+s: sphere(1):+
+utils: cq utils.show_object:+
+ce: object_tree.addObject:+ root=<cq_editor.widgets.object_tree.CQRootItem object at 0x7fc3bdee97d0> columnCount=1 children=1
+ce: object_tree.addObject:- root=<cq_editor.widgets.object_tree.CQRootItem object at 0x7fc3bdee97d0> columnCount=1 children=2
+utils: cq utils.show_object:-
+s: sphere(1):-
+y: after sphere
+y:-
+ce: render: call self._cleanup_locals len(cq_objects)=0
+ce: render: len(cq_objects)==0 call find_cq_objects
+ce: render: call sigRendered.emit(cq_objects) len(cq_objects)==2
+ce: object_tree.addObjects:+ root=None len(objects)=2
+ce: object_tree.addObjects: root=<cq_editor.widgets.object_tree.CQRootItem object at 0x7fc3bdee97d0> columnCount=1 children=2 len(objects)=2
+ce: object_tree.addObjects: before removeObjects clean=False pref['clear']=True root.childCount=2
+ce: object_tree.addObjects: call removeObjects root=<cq_editor.widgets.object_tree.CQRootItem object at 0x7fc3bdee97d0> columnCount=1 children=2 len(objects)=2
+ce: object_tree.addObjects: after removeObjects root.childCount=0
+ce: object_tree.addObjects: name=sphere
+ce: object_tree.addObjects: child.properties['Visible'] sphere
+ce: object_tree.addObjects: root.addChild sphere
+ce: object_tree.addObjects: name=box
+ce: object_tree.addObjects: child.properties['Visible'] box
+ce: object_tree.addObjects: root.addChild box
+ce: object_tree.addObjects: sigObjectsAdded[ais_list]
+ce: object_tree.addObjects:- root=<cq_editor.widgets.object_tree.CQRootItem object at 0x7fc3bdee97d0> columnCount=1 children=2 len(objects)=2
+ce: render: call sigTraceback.emit(None, cq_script) len(cq_objects)==2
+ce: render: call sigLocals.emit(module.__dict__) len(cq_objects)==2
+ce: render:-

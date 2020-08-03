@@ -7,7 +7,9 @@ if "cq_editor" in sys.modules:
     from logbook import info as _cq_log
 
     def show_object(o: object):
+        print("utils: cq utils.show_object:+")
         _cq_editor.components["object_tree"].addObject(o)
+        print("utils: cq utils.show_object:-")
 
     def log(*args):
         _cq_log(*args)
@@ -16,6 +18,7 @@ if "cq_editor" in sys.modules:
 else:
 
     def show_object(o: object):
+        print("utils: !cq show_object:+")
         if o is None:
             log("o=None")
         elif isinstance(o, cq.Workplane):
@@ -23,6 +26,7 @@ else:
                 log(f"{i}: valid={o.val().isValid()} {vars(thing)}")
         else:
             log(vars(o))
+        print("utils: !cq show_object:-")
 
     def log(*args):
         print(*args)
